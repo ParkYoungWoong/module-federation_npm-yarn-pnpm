@@ -1,4 +1,4 @@
-## npm
+# npm
 
 ```bash
 # 루트 프로젝트 및 워크스페이스 초기화
@@ -42,7 +42,7 @@ npm i concurrently
 }
 ```
 
-### pnpm
+# pnpm
 
 `pnpm-workspace.yaml` 파일 생성 후 구조 지정
 
