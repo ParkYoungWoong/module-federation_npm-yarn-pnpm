@@ -1,6 +1,6 @@
 const webpack = require('webpack')
 const HtmlPlugin = require('html-webpack-plugin')
-const { ModuleFederationPlugin } = require('webpack').container
+const { ModuleFederationPlugin } = require('@module-federation/enhanced/webpack')
 
 module.exports = {
   // 파일을 읽어들이기 시작하는 진입점 설정
@@ -40,6 +40,14 @@ module.exports = {
         './Header': './components/Header.jsx',
         './Nav': './components/Nav.jsx',
         './Main': './components/Main.jsx',
+      },
+      shared: {
+        react: {
+          singleton: true
+        },
+        'react-dom': {
+          singleton: true
+        }
       }
     })
   ],
