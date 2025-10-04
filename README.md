@@ -65,7 +65,7 @@ npm i concurrently
 ```json
 {
   "scripts": {
-    "start": "concurrently \\"npm run start --workspace=host\\" \\"npm run start --workspace=remote\\""
+    "start": "concurrently \"npm run start --workspace=host\" \"npm run start --workspace=remote\""
   }
 }
 ```
