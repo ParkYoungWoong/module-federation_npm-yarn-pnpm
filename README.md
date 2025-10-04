@@ -15,12 +15,12 @@ git clean -fdx
 npm init -y
 ```
 
-`package.json`의 `workspaces` 옵션을 다음과 같이 수정.
+`package.json`의 `workspaces` 속성에 워크스페이스 경로 지정
 
 ```json
 {
   "workspaces": [
-    "packages/*"
+    "apps/*"
   ]
 }
 ```
@@ -93,13 +93,13 @@ npm i lodash-es --workspace=remote
 yarn init -w
 ```
 
-루트 `package.json`의  `workspaces` 속성이 다음과 같이 자동 지정되며, 루트 스크립트 실행을 제어하기 위해 `name` 속성의 값을 `root`로 지정
+루트 `package.json`에서 루트 스크립트 실행을 제어하기 위해 `name` 속성의 값을 `root`로 지정하고 `workspaces` 속성에 워크스페이스 경로 지정
 
 ```json
 {
   "name": "root",
   "workspaces": [
-    "packages/*"
+    "apps/*"
   ]
 }
 ```
@@ -159,11 +159,11 @@ yarn workspace remote add lodash-es
 
 ## pnpm
 
-`pnpm-workspace.yaml` 파일 생성 후 워크스페이스 구조 지정
+`pnpm-workspace.yaml` 파일 생성 후 `packages` 속성에 워크스페이스 경로 지정
 
 ```yaml
 packages:
-  - "packages/*"
+  - "apps/*"
 ```
 
 프로젝트 초기화(루트 프로젝트 및 워크스페이스 초기화)
