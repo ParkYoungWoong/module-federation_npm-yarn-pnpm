@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const HtmlPlugin = require('html-webpack-plugin')
-const { ModuleFederationPlugin } = require('@module-federation/enhanced/webpack')
+// const { ModuleFederationPlugin } = require('webpack').container // 1.0
+const { ModuleFederationPlugin } = require('@module-federation/enhanced/webpack') // 2.0
 
 module.exports = {
   // 파일을 읽어들이기 시작하는 진입점 설정
@@ -55,5 +56,10 @@ module.exports = {
   // 개발 서버 옵션
   devServer: {
     port: 3001
+  },
+
+  // 성능 최적화 설정
+  performance: {
+    hints: false // 성능 경고 무시
   }
 }
