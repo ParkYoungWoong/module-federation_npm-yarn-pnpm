@@ -25,6 +25,10 @@ module.exports = {
             presets: ['@babel/preset-react']
           }
         }
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
@@ -52,7 +56,8 @@ module.exports = {
   
   // 개발 서버 옵션
   devServer: {
-    port: 3000
+    port: 3000,
+    historyApiFallback: true
   },
 
   // 성능 최적화 설정

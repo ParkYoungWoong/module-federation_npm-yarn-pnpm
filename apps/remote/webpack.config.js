@@ -39,7 +39,7 @@ module.exports = {
       filename: 'remoteEntry.js',
       exposes: {
         './Header': './components/Header.jsx',
-        './Nav': './components/Nav.jsx',
+        './Aside': './components/Aside.jsx',
         './Main': './components/Main.jsx',
       },
       shared: {
@@ -55,7 +55,8 @@ module.exports = {
   
   // 개발 서버 옵션
   devServer: {
-    port: 3001
+    port: 3001,
+    historyApiFallback: true
   },
 
   // 성능 최적화 설정

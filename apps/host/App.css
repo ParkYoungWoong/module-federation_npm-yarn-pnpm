@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  padding: 20px;
+}
+.app {
+  width: calc(100vw - 40px);
+  height: calc(100vh - 40px);
+  padding: 20px;
+  border: 5px dashed;
+  border-radius: 6px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.container {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 80px 1fr 1fr;
+  grid-template-areas: 
+    "header header header"
+    "main main aside"
+    "main main aside";
+  gap: 20px;
+}
+.container > * {
+  border: 5px solid;
+  border-radius: 6px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container > .header {
+  grid-area: header;
+  color: red;
+}
+.container > .main {
+  grid-area: main;
+  color: royalblue;
+}
+.container > .aside {
+  grid-area: aside;
+  color: yellowgreen;
+}

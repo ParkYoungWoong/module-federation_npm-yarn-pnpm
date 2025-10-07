@@ -1,28 +1,37 @@
-import React, { Suspense } from 'react'
+import React, { lazy, Suspense } from 'react'
 import { ErrorBoundary } from "react-error-boundary"
+import './App.css'
 
 export default function App() {
-  const RemoteHeader = React.lazy(() => import('remote/Header'))
-  const RemoteNav = React.lazy(() => import('remote/Nav'))
-  const RemoteMain = React.lazy(() => import('remote/Main'))
+  const RemoteHeader = lazy(() => import('remote/Header'))
+  const RemoteMain = lazy(() => import('remote/Main'))
+  const RemoteAside = lazy(() => import('remote/Aside'))
   return (
-    <div>
+    <div className="app">
       <h1>Host App</h1>
-      <ErrorBoundary fallback={<div>Error Remote Header</div>}>
-        <Suspense fallback="Loading Remote Header...">
-          <RemoteHeader />
-        </Suspense>
-      </ErrorBoundary>
-      <ErrorBoundary fallback={<div>Error Remote Nav</div>}>
-        <Suspense fallback="Loading Remote Nav...">
-          <RemoteNav />
-        </Suspense>
-      </ErrorBoundary>
-      <ErrorBoundary fallback={<div>Error Remote Main</div>}>
-        <Suspense fallback="Loading Remote Main...">
-          <RemoteMain />
-        </Suspense>
-      </ErrorBoundary>
+      <div className="container">
+        <div className="header">
+          <ErrorBoundary fallback={<div>Error Remote Header</div>}>
+            <Suspense fallback="Loading Remote Header...">
+              <RemoteHeader />
+            </Suspense>
+          </ErrorBoundary>
+        </div>
+        <div className="main">
+          <ErrorBoundary fallback={<div>Error Remote Main</div>}>
+            <Suspense fallback="Loading Remote Main...">
+              <RemoteMain />
+            </Suspense>
+          </ErrorBoundary>
+        </div>
+        <div className="aside">
+          <ErrorBoundary fallback={<div>Error Remote Aside</div>}>
+            <Suspense fallback="Loading Remote Aside...">
+              <RemoteAside />
+            </Suspense>
+          </ErrorBoundary>
+        </div>
+      </div>
     </div>
   )
 }
